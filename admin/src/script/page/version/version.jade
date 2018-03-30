@@ -1,0 +1,29 @@
+div.title-right
+    button.btn.btn-primary.btn-addon(ng-click='mv.update()')
+        i.fa.fa-plus
+        | 添加版本
+div.panel.panel-default
+    div.panel-heading.font-bold 版本列表
+    div.table-responsive
+
+        table.table.table-striped.m-b-none
+            thead
+                tr
+                    th 系统
+                    th 版本
+                    th 大小
+                    th 是否必须更新
+                    th 更新日志
+                    th 创建时间
+                    th.text-right 操作
+            tbody
+                tr(ng-repeat='item in mv.items') 
+                    td {{item.os}}
+                    td {{item.version}}
+                    td {{item.size}}
+                    td {{item.isMust ? '是':'否'}}
+                    td {{item.updateLog}}
+                    td {{item.createdOn}}
+                    td.text-right
+                        button.btn.btn-default.btn-sm(ng-click='mv.update(item)') 修改
+                        button.btn.btn-default.btn-sm.m-l-sm(ng-click='mv.remove(item)') 删除

@@ -1,0 +1,25 @@
+div.modal-header
+    h4.modal-title {{mv.title}}
+        button.close(type="button", ng-click='mv.dismiss()')
+            span ×
+    
+div.modal-body.form-horizontal
+
+    div.form-group
+        label.col-sm-3.control-label 手机号
+        div.col-sm-8
+            input.form-control(ng-model='mv.admin.phoneNumber', placeholder="请输入手机号")
+    div.form-group
+        label.col-sm-3.control-label 真实名称
+        div.col-sm-8
+            input.form-control(ng-model='mv.admin.realName', placeholder="请输入真实名称")
+    div.form-group
+        label.col-sm-3.control-label 密码
+        div.col-sm-8
+            input.form-control(ng-model='mv.admin.password', placeholder="请输入密码")
+    div.form-group
+        div.col-sm-8.col-sm-offset-3
+            button.btn.btn-primary.btn-addon(ng-click='mv.submit()')
+                i.fa.fa-hand-o-right 
+                | 提交
+   

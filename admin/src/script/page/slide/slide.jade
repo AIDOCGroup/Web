@@ -1,0 +1,43 @@
+div.title-right
+    p.input-group.w-sm
+        input.form-control(
+            uib-datepicker-popup, ng-model="mv.date", is-open="mv.datepicker.opened", 
+            datepicker-options="mv.datepicker.options"
+        )
+        span.input-group-btn
+            button.btn.btn-default(ng-click="mv.datepicker.opened=true")
+                i.glyphicon.glyphicon-calendar
+div.panel.panel-default
+    div.panel-heading.font-bold {{mv.formatDate}} 课件
+    div.row
+    div.row
+        div.col-sm-12
+            table.table.m-b-none.b-b.table-hover
+                thead
+                    tr
+                        th 课件名称
+                        th 用户手机号
+                        th 
+                            sort(sort-key='mv.sort.pages', on-change="mv.sortChange('pages')") 页数
+                        th 
+                            sort(sort-key='mv.sort.isFirst', on-change="mv.sortChange('isFirst')") 首份
+                        th 
+                            sort(sort-key='mv.sort.updateCount', on-change="mv.sortChange('updateCount')") 更新次数
+                        th 
+                            sort(sort-key='mv.sort.created', on-change="mv.sortChange('created')") 创建时间
+                        th 
+                            sort(sort-key='mv.sort.updated', on-change="mv.sortChange('updated')") 最近更新时间
+                        th.text-center 课件详情
+                tbody
+                    tr(ng-repeat='slide in mv.slide')
+                        td {{slide.title}}
+                        td {{slide.user.phoneNumber}}
+                        td {{slide.filmstripCount}}
+                        td {{slide.isFirst?'是':'否'}}
+                        td {{slide.updateCount}}
+                        td {{slide.createdAt}}
+                        td {{slide.updatedAt}}
+                        td.text-center 
+                            a.btn.btn-default.btn-sm(ng-click="mv.openModal(slide.id)") 详情
+    div.row
+        pagination(page-size='mv.page.size', item-count='mv.page.items.length', ng-model='mv.page.current')

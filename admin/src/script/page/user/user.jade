@@ -1,0 +1,42 @@
+div(style="position: absolute;top: 70px;right: 180px;")
+   input.inp#start(type="text" placeholder="开始时间" value="2018-01-01 00:00:00")
+   input.inps#end(type="text" placeholder="结束时间" value="2018-05-01 00:00:00")
+   button(ng-click='mv.dataBtn("start","end")')提交
+div.title-right
+    button.btn.btn-primary.btn-addon(ng-click='mv.update()')
+        i.fa.fa-plus
+        | 添加文章
+div.panel.panel-default
+    div.panel-heading.font-bold 文章列表
+    div.row
+        div.col-sm-12
+            table.table.table-hover.m-b-none.b-b
+                thead
+                    tr
+                        th 用户id
+                        th 手机号
+                        th 性别
+                        th 年龄
+                        th 登录时间
+                        th 注册时间
+                        //- th.text-right 操作
+                tbody
+                    tr(ng-repeat='item in mv.items')
+                        th {{item.id}}
+                        td {{item.phoneNumber}}
+                        td {{item.sex}}
+                        td {{item.age || '未知'}}
+                        td {{item.lastLoginAt}}
+                        td {{item.created}}
+                        //-td.text-right
+                            button.btn.btn-default.btn-sm(ng-click='mv.detail(item)') 详情
+    div.row
+        div.col-sm-12
+            pagination(page-size='mv.page.size', item-count='mv.page.count', ng-model='mv.page.current')
+
+
+
+
+
+
+

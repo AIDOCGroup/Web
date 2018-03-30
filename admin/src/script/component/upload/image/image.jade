@@ -1,0 +1,6 @@
+div.image-upload
+    div(ngf-select="mv.upload($file)", class='thumbnail {{mv.size}}')
+        img(ng-src="{{mv.url}}", ng-if="mv.url")
+        span(ng-if="!mv.url")
+            i.icon-picture
+            label 请选择需要上传的图片

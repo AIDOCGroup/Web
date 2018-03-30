@@ -1,0 +1,128 @@
+style.
+    #show{
+        overflow-y: scroll;
+        position: absolute;
+        top: 25%;
+        left: 17%;
+        width: 70%;
+        height: 60%;
+        background-color: #ffffff;
+        z-index: 1002;
+        border-radius: 10px;
+        padding: 4px;
+        display:none;
+    }
+    #close{position: absolute;right: 26px;top: 20px;}
+
+    .chat-thread {
+        margin: 24px auto 0 auto;
+        padding: 0 20px 0 0;
+        list-style: none;
+        overflow-x: hidden;
+    }
+
+    .chat-thread li {
+        position: relative;
+
+        display: inline-block;
+        padding: 16px 40px 16px 20px;
+        margin: 0 0 20px 0;
+        font: 16px/20px 'Noto Sans', sans-serif;
+        border-radius: 10px;
+        background-color: rgba(25, 147, 147, 0.2);
+    }
+
+    .chat-thread li:before {
+        position: absolute;
+        top: 0;
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        content: '';
+    }
+
+    .chat-thread li:after {
+        position: absolute;
+        top: 15px;
+        content: '';
+        width: 0;
+        height: 0;
+        border-top: 15px solid rgba(25, 147, 147, 0.2);
+    }
+
+    .chat-thread li:nth-child(odd) {
+        animation: show-chat-odd 0.15s 1 ease-in;
+        -moz-animation: show-chat-odd 0.15s 1 ease-in;
+        -webkit-animation: show-chat-odd 0.15s 1 ease-in;
+        float: right;
+        margin-right: 80px;
+        margin-top: 80px;
+        color: #0AD5C1;
+    }
+
+    .chat-thread li:nth-child(odd):before {
+        right: -80px;
+    }
+
+    .chat-thread li:nth-child(odd):after {
+        border-right: 15px solid transparent;
+        right: -15px;
+    }
+
+    .chat-thread li:nth-child(even) {
+        animation: show-chat-even 0.15s 1 ease-in;
+        -moz-animation: show-chat-even 0.15s 1 ease-in;
+        -webkit-animation: show-chat-even 0.15s 1 ease-in;
+        float: left;
+        margin-left: 80px;
+        color: #0EC879;
+    }
+
+    .chat-thread li:nth-child(even):before {
+        left: -80px;
+    }
+
+    .chat-thread li:nth-child(even):after {
+        border-left: 15px solid transparent;
+        left: -15px;
+    }
+
+div.title-right
+div.panel.panel-default
+    div.panel-heading.font-bold
+    div.row
+        div.col-sm-12
+            table.table.table-hover.m-b-none.b-b
+                thead
+                    tr
+                        th 时间
+                        th 类型
+                        th 用户
+                        th 联系方式
+                        th 操作
+
+                        //- th.text-right 操作
+                tbody
+                    tr(ng-repeat='item in mv.kang')
+                        td {{item.createOn}}
+                        td {{item.type}}
+                        td {{item.nickName}}
+                        td {{item.mobile}}
+                        td
+                            button.bts(ng-click='mv.question(item.sessionId)') 详情
+
+div.row
+    div.col-sm-12
+        pagination(page-size='mv.page.size', item-count='mv.page.count', ng-model='mv.page.current')
+
+
+div#show
+    button.close#close(type="button", ng-click='mv.dismiss()')
+        span ×
+
+    ul.chat-thread(ng-repeat='item in mv.detail')
+        li {{item.kfzAnswer}}
+        li {{item.kfzQuestionBody}}
+
+
+

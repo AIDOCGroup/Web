@@ -1,0 +1,33 @@
+div.app.app-header-fixed
+
+    div.app-header.navbar
+        div.navbar-header.bg-white-only(style='color: #666;')
+            strong Administant
+        div.collapse.pos-rlt.navbar-collapse.box-shadow.bg-white-only
+            div.nav.navbar-nav.hidden-xs
+
+    header.navbar
+        aside.app-aside.hidden-xs.bg-dark
+            div.aside-wrap
+                div.navi-wrap
+                    nav.navi.clearfix
+                        ul.nav
+                            li(ng-repeat="menu in mv.menus", ng-class="{active: menu.open}")
+                                a.auto(ng-click="mv.openMenu(menu)")
+                                    span.pull-right.text-muted(ng-hide="menu.open && !menu.children")
+                                        i.fa.fa-fw.fa-angle-right.text
+                                        i.fa.fa-fw.fa-angle-down.text-active
+                                    span.pull-right.text-muted(ng-show="menu.open && !menu.children")
+                                        i.fa.fa-fw.fa-angle-right.text
+                                    i(class=".glyphicon {{menu.icon}}")
+                                    span.font-bold(ng-bind="menu.name")
+                                ul.nav.nav-sub.dk
+                                    li(ng-repeat="sub in menu.children" ng-class="{active: sub.open}")
+                                        a(href="{{sub.href}}")
+                                            span(ng-bind="sub.name")
+
+    div.app-content
+        div.app-content-body
+            div.bg-light.lter.b-b.wrapper-md
+                h1.m-n.font-thin.h3(ng-bind="title")
+            div.wrapper-md(ui-view)

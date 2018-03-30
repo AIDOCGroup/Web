@@ -1,0 +1,43 @@
+style.
+    tbody tr td input{width:140px;border:0;outline: none;}
+div.title-right
+    button#bts.btn.btn-primary.btn-addon(ng-click='mv.update()')
+        i.fa.fa-plus
+        | AIDOC运营管理
+div.panel.panel-default
+    div.panel-heading.font-bold
+    div.row
+        div.col-sm-12
+            table.table.table-hover.m-b-none.b-b
+                thead
+                    tr
+                        th 活动名称
+                        th 开始时间
+                        th 结束时间
+                        th AIDOC总数
+                        th 每人获取上线
+                        //- th.text-right 操作
+                tbody#tbody
+                 tr(ng-repeat='item in mv.id')
+                                        td {{item.startDay}}
+                                        td {{item.endDay}}
+                                        td {{item.amount}}
+                                        td {{item.amount}}
+                                        td {{item.amount}}
+
+    div.row
+        div.col-sm-12
+            pagination(page-size='mv.page.size', item-count='mv.page.count', ng-model='mv.page.current')
+
+script document.getElementById("bts").onclick=function(){var a2=document.getElementById("tbody"),a3=document.createElement("tr"),ab5=document.createElement("input"),a4=document.createElement("td"),ab6=document.createElement("input"),a5=document.createElement("td");ab7=document.createElement("input"),a6=document.createElement("td"),ab8=document.createElement("input"),a7=document.createElement("td"),ab9=document.createElement("input"),a8=document.createElement("td");a3.appendChild(a4);a4.appendChild(ab5);a3.appendChild(a5);a5.appendChild(ab6);a3.appendChild(a6);a6.appendChild(ab7);a3.appendChild(a7);a7.appendChild(ab8);a3.appendChild(a8);a8.appendChild(ab9);a2.appendChild(a3);}
+
+
+
+
+
+
+
+
+
+
+

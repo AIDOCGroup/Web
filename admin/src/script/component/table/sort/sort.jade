@@ -1,0 +1,6 @@
+div.table-sort
+    span(ng-transclude)
+    button(ng-click='mv.sort()')
+        i.fa.fa-unsorted(ng-if='mv.sortKey==0')
+        i.fa.fa-long-arrow-up.text-info(ng-if='mv.sortKey==1')
+        i.fa.fa-long-arrow-down.text-info(ng-if='mv.sortKey==-1')

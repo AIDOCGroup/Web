@@ -1,0 +1,21 @@
+div.panel.panel-default
+    div.panel-heading
+        | 用户留存
+    table.table.table-bordered.table-hover.m-b-none
+        thead
+            tr
+                th 时间
+                th.text-right 用户
+                th.text-right 次周
+                th.text-right 2周
+                th.text-right 3周
+                th.text-right 4周
+        tbody
+            tr(ng-repeat='row in mv.datasource')
+                td.v-middle {{row.date}}
+                td.text-right.v-middle {{row.count}}
+                td.text-right(ng-init='retain=row.retains[$index+1]', ng-repeat='i in [1, 2, 3, 4]')
+                    span(ng-if='retain')
+                        strong {{retain.ratio}}%
+                        br
+                        small {{retain.count}}

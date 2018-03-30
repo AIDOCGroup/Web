@@ -1,0 +1,63 @@
+style.
+    .all {
+        height: 33px;
+        text-align: center;
+        line-height: 33px;
+        font-size: 16px;
+        border: 1px solid #d7ccc8;
+    }
+    #all{
+        padding: 7px 49px;
+    }
+    .title-list a{
+        border: 1px solid #d7ccc8;
+        padding: 7px 25px;
+        font-size: 16px;
+    }
+    .title-list a:hover{background:#c1c3c9;}
+
+div.title-list(style="position:absolute;left:221px;top:57px;")
+
+        a#all.all(value="0"  ng-click='mv.orders(0)')全部
+
+        a(value="1"  ng-click='mv.orders(1)')体重
+
+        a(value="2"  ng-click='mv.orders(2)')血糖
+
+        a(value="3"  ng-click='mv.orders(3)')血压
+
+        a(value="4"  ng-click='mv.orders(4)')心率
+
+div.title-right
+
+div.panel.panel-default
+    div.panel-heading.font-bold
+    div.row
+        div.col-sm-12
+            table.table.table-hover.m-b-none.b-b
+                thead
+                    tr
+                        th 时间
+                        th 检测结果
+                        th 用户
+                        th 输入方式
+                        th 检测类型
+                        th 设备品牌
+                        th 设备类型
+                        th 型号
+                        //- th.text-right
+                tbody
+                    tr(ng-repeat="item in mv.head")
+                        td {{item.time}}
+                        td {{item.data}}
+                        td {{item.nickname}}
+                        td //
+                        td {{item.datatype}}
+                        td {{item.devicename}}
+                        td {{item.devicetype}}
+                        td //
+
+div.row
+    div.col-sm-12
+        pagination(page-size='mv.page.size', item-count='mv.page.count', ng-model='mv.page.current')
+

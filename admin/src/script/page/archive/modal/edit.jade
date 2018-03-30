@@ -1,0 +1,29 @@
+div.modal-header
+    h4.modal-title {{mv.title}}
+        button.close(type="button", ng-click='mv.dismiss()')
+            span ×
+    
+div.modal-body.form-horizontal
+
+    div.form-group
+        label.col-sm-2.control-label 标题
+        div.col-sm-8
+            input.form-control(ng-model='mv.archive.title', placeholder="请输入标题")
+    div.form-group
+        label.col-sm-2.control-label 语言
+        div.col-sm-8
+            selector(ng-model='mv.archive.lang', ng-opts='mv.langOpts')
+    div.form-group
+        label.col-sm-2.control-label 封面
+        div.col-sm-8
+            image-upload(ng-model='mv.archive.cover', ng-size='sm')
+    div.form-group
+        label.col-sm-2.control-label 内容
+        div.col-sm-8
+            text-editor(ng-model='mv.archive.content')
+    div.form-group
+        div.col-sm-8.col-sm-offset-3
+            button.btn.btn-primary.btn-addon(ng-click='mv.submit()')
+                i.fa.fa-hand-o-right 
+                | 提交
+   

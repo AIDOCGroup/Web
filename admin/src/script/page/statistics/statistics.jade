@@ -1,0 +1,48 @@
+style.
+    .leftb{
+        position: absolute;left: 59px;top: 11px;
+        width:0;height:0;border-bottom:8px solid transparent;
+        border-top:8px solid transparent;border-right:8px solid #000;
+        font-size:0;"
+    }
+    .rightb{
+        position: absolute;left: 71px;top: 11px;
+        width:0;height:0;border-bottom:8px solid transparent;
+        border-top:8px solid transparent;border-left:8px solid #000;
+        font-size:0;"
+    }
+div.title-right
+div.panel.panel-default
+    div.panel-heading.font-bold
+    div.row
+        div.col-sm-12
+            table.table.table-hover.m-b-none.b-b
+                thead
+                    tr
+                        th(style="position:relative") 时间
+                            b.leftb(value="1"  ng-click='mv.orders(1)')
+                            b.rightb(value="0" ng-click='mv.orders(0)')
+                        th 用户id
+                        th 昵称
+                        th 联系方式
+                        th(style="position:relative") 代币数
+                            b.leftb(value="1"  ng-click='mv.orders(1)')
+                            b.rightb(value="0" ng-click='mv.orders(0)')
+                        th(style="position:relative") 总步数
+                            b.leftb(value="1"  ng-click='mv.orders(1)')
+                            b.rightb(value="0" ng-click='mv.orders(0)')
+                        //- th.text-right 操作
+                tbody
+                    tr(ng-repeat='item in mv.statics')
+                        td {{item.day}}
+                        td {{item.userId}}
+                        td {{item.nickName}}
+                        td {{item.mobile}}
+                        td {{item.aidoc}}
+                        td {{item.stepNumber}}
+
+
+    div.row
+        div.col-sm-12
+            pagination(page-size='mv.page.size', item-count='mv.page.count', ng-model='mv.page.current')
+

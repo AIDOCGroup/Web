@@ -1,0 +1,7 @@
+div.btn-group.selector(ng-class="{active: mv.show}")
+    button.btn.btn-default.btn-sm.dropdown-toggle(type="button", ng-click="mv.openPanel()")
+        span.selected-name {{mv.selectedOption}}
+        span.caret
+    ul.dropdown-menu
+        li(ng-repeat="(k,v) in mv.ngOpts", ng-click="mv.select(k)")
+            a(href="#", ng-bind="v")

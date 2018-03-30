@@ -1,0 +1,30 @@
+div.title-right
+    button.btn.btn-primary.btn-addon(ng-click='mv.update()')
+        i.fa.fa-plus
+        | 添加文章
+div.panel.panel-default
+    div.panel-heading.font-bold 文章列表
+    div.row
+        div.col-sm-12
+            table.table.table-striped.m-b-none
+                thead
+                    tr
+                        th 标题
+                        th 语言
+                        th 观看次数
+                        th 分享次数
+                        th 创建时间
+                        th.text-right 操作
+                tbody
+                    tr(ng-repeat='item in mv.items') 
+                        td {{item.title}}
+                        td {{item.lang}}
+                        td {{item.watchNum}}
+                        td {{item.forwardNum}}
+                        td {{item.createdAt}}
+                        td.text-right
+                            button.btn.btn-default.btn-sm(ng-click='mv.update(item)') 修改
+                            button.btn.btn-default.btn-sm.m-l-sm(ng-click='mv.remove(item)') 删除
+    div.row
+        div.col-sm-12
+            pagination(page-size='mv.page.pageSize', item-count='mv.page.count', ng-model='mv.page.page')

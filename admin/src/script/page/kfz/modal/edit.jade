@@ -1,0 +1,15 @@
+div.modal-header
+    h4.modal-title {{md.data.title}}, 共{{md.data.filmstripCount}}页
+        button.close(type="button", ng-click='md.dismiss()')
+            span ×
+div.modal-body.form-horizontal(ng-style="{ 'background-color': '#f6f6f6', padding: '0px'}")
+    div.course-preview-wrapper
+        ul.course-preview
+            li.ks-slide-wrapper( ng-repeat="film in md.data.filmstrips")
+                div.title
+                    div.course-title-con
+                        div.course-title {{film.title}}
+                div.kl-slide-content
+                    div.kl-slide-con(ng-style="{height:md.data.filmstrips_count*350+20+'px'}")
+                        div.ks-slide
+                            slide-loader(slide-url='film.file')

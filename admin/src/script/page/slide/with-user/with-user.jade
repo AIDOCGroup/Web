@@ -1,0 +1,36 @@
+div.title-right
+    p.input-group.w-sm(ng-hide='true')
+        input.form-control
+        span.input-group-btn
+            button.btn.btn-default 搜索
+div.panel.panel-default
+    div.panel-heading.font-bold {{mv.formatDate}} 课件
+    div.row
+    div.row
+        div.col-sm-12
+            table.table.m-b-none.b-b.table-hover
+                thead
+                    tr
+                        th 用户手机号
+                        th 昵称
+                        th 首份课件名称
+                        th 首份课件页数
+                        th 课件数
+                        th 
+                            sort(sort-key='mv.sort.createdAt.sortKey', on-change="mv.sortChange('createdAt')") 注册时间
+                        th 
+                            sort(sort-key='mv.sort.lastLogin.sortKey', on-change="mv.sortChange('lastLogin')") 最近登录时间
+                        th.text-center 操作
+                tbody
+                    tr(ng-repeat='user in mv.page.items') 
+                        td {{user.phoneNumber}}
+                        td {{user.nickname}}
+                        td {{user.firstSlide.title}}
+                        td {{user.firstSlide.filmstripCount}}
+                        td {{user.slideCount}}
+                        td {{user.createdAt}}
+                        td {{user.lastLogin}}
+                        td.text-center 
+                            a.btn.btn-default.btn-sm(ui-sref='user-teacher({id: user.userId})') 详情
+    div.row
+        pagination(page-size='mv.page.size', item-count='mv.page.itemCount', ng-model='mv.page.current')

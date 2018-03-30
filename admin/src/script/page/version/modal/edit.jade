@@ -1,0 +1,41 @@
+div.modal-header
+    h4.modal-title {{mv.title}}
+        button.close(type="button", ng-click='mv.dismiss()')
+            span ×
+    
+div.modal-body.form-horizontal
+
+    div.form-group
+        label.col-sm-3.control-label 系统
+        div.col-sm-8
+            input.form-control(ng-model='mv.version.os', placeholder="请输入系统")
+    div.form-group
+        label.col-sm-3.control-label 版本
+        div.col-sm-8
+            input.form-control(ng-model='mv.version.version', placeholder="请输入版本")
+    div.form-group
+        label.col-sm-3.control-label 下载地址
+        div.col-sm-8
+            input.form-control(ng-model='mv.version.downUrl', placeholder="请输入下载地址")
+    div.form-group
+        label.col-sm-3.control-label 包大小
+        div.col-sm-8
+            input.form-control(ng-model='mv.version.size', placeholder="请输入包大小")
+    div.form-group
+        label.col-sm-3.control-label 更新日志
+        div.col-sm-8
+            textarea.form-control(ng-model='mv.version.updateLog', placeholder="请输入更新日志")
+
+    div.form-group
+        label.col-sm-3.control-label 必须更新
+        div.col-sm-8
+            div.checkbox
+                label.i-checks
+                    input(type="checkbox", ng-model='mv.version.isMust')
+                    i
+    div.form-group
+        div.col-sm-8.col-sm-offset-3
+            button.btn.btn-primary.btn-addon(ng-click='mv.submit()')
+                i.fa.fa-hand-o-right 
+                | 提交
+   

@@ -1,0 +1,72 @@
+.course-preview-wrapper {
+    height: 800px;
+    overflow: hidden;
+    overflow-y: auto;
+    .course {
+      font-size: 18px;
+      color: #666e7f;
+      line-height: 33px;
+      text-align: center;
+      margin:20px 0 20px 0;
+    }
+    .course-preview {
+        list-style: none;
+        .ks-slide-wrapper {
+          width:700px;
+          height:470px;
+          margin:0 auto;
+            .title {
+                height: 34px;
+                margin-bottom:10px;
+                .course-title-con {
+                    .course-title {
+                        font-size: 16px;
+                        color: #666e7f;
+                        font-weight: 500;
+                        line-height: 33px;
+                    }
+                }
+            }
+            .kl-slide-content {
+                .kl-slide-con {
+                    width: 700px;
+                    transform: scale(700/960);
+                    transform-origin: 0 0;
+                    .ks-slide {
+                        width: 960px;
+                        height: 540px;
+                        overflow: hidden;
+                        margin: 0 auto;
+                        margin-left: 2px;
+                        box-shadow: 0 2px 2px 0 rgba(26, 26, 51, 0.24);
+                        background: #fff;
+                        pointer-events: none;
+                        margin-bottom: 20px;
+                        position: relative;
+                        >svg {
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            transform: scale(960/696) translate(-50%, -50%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.modal-text {
+    font-size:16px;
+    background-color:#27c24c;
+    color: #fff;
+}
+.back_drop {
+    .modal-content {
+        overflow: hidden;
+        border:none;
+    }
+    .modal-backdrop {
+        background: transparent;
+    }
+    
+}

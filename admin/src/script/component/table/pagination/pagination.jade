@@ -1,0 +1,12 @@
+div(ng-if='mv.ngModel>0')
+    div.col-sm-6 
+        div.text-muted.inline.m-sm
+            small 共有{{mv.itemCount}}条， 每页显示{{mv.pageSize}}条
+    div.col-sm-6.text-right
+        div.pagination.pagination-sm.m-sm(ng-if='mv.pageCount>1')
+            li.paginate_button.previous(ng-class="{'disabled': mv.ngModel==1}")
+                a(ng-click='mv.prev()') 上一页
+            li.paginate_button(ng-repeat='page in mv.pages', ng-class='{active: page==mv.ngModel}')
+                a(ng-click='mv.paging(page)') {{page}}
+            li.paginate_button.next(ng-class="{'disabled': mv.ngModel==mv.pageCount}")
+                a(ng-click='mv.next()') 下一页

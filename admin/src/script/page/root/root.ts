@@ -34,11 +34,6 @@ export class RootPage{
             href: "archive/2",
         },
         {
-            icon: 'f fa fa-pinterest icon text-info-lter',
-            name: "运营管理",
-            href: "promotion",
-        },
-        {
             icon: 'f fa fa-rocket icon text-info-lter',
             name: "邀请管理",
             href: "invitation",

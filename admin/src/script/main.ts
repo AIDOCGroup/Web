@@ -11,7 +11,6 @@ import { Page } from './page/page';
 import { App } from './app';
 import { RootPage } from './page/root/root';
 import { DashbaordPage } from './page/dashboard/dashboard';
-import { PromotionPage } from './page/promotion/promotion';
 import { StatisticsPage } from './page/statistics/statistics';
 import { KfzPage } from './page/kfz/kfz';
 import { HealthyPage } from './page/healthy/healthy';
@@ -30,7 +29,6 @@ App.initModules(RootPage, [
     ArchivePage,
     UserPage,
     VersionPage,
-    PromotionPage,
     StatisticsPage,
     KfzPage,
     HealthyPage,

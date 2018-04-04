@@ -12,6 +12,7 @@ export class InvitationPage extends Page {
     Channe:any = [];
     able:any = [];
     namess:any = [];
+    code: any = [];
 
     page:{
         size: number,
@@ -51,6 +52,7 @@ export class InvitationPage extends Page {
             this.scopeApply();
         });
     }
+
     loadData() {
         HttpService.Invitation.getInvitationsItems(this.page.current, this.page.size,'').then((response:any) => {
             this.invi = response.list;
@@ -58,22 +60,40 @@ export class InvitationPage extends Page {
             this.scopeApply();
         });
     }
-    loadSubmit(userId,code,channel,status) {
-        HttpService.Invitation.getSubmitItems(userId,code,channel,status).then((response:any) => {
+    loadSubmit(userId,channel,status) {
+        HttpService.Invitation.getSubmitItems(userId,channel,status).then((response:any) => {
+            this.code = response.content;
             this.scopeApply();
         });
     }
-    //loadDisable() {
-      //  HttpService.Invitation.getDisableItems().then((response:any) => {
-       //     this.able = response.list;
-       //    console.log(this.able)
-        //    this.scopeApply();
-       // });
-   // }
+  loadDisable(codes) {
+       HttpService.Invitation.getDisableItems(codes).then((response:any) => {
+          this.able = response.list[0];
+          this.scopeApply();
+       });
+  }
+    loadUpsubmit(code1,status1){
 
-    //upable(){
-       // this.loadDisable()
-   // }
+        HttpService.Invitation.getUpsubmitItems(code1,status1).then((response:any) => {
+            this.scopeApply();
+        });
+    }
+
+    //预览
+    preview(code){
+
+        $("#preview").qrcode({
+                    render : "canvas",    //设置渲染方式，有table和canvas，使用canvas方式渲染性能相对来说比较好
+                    makeCode(code)
+                    text : "code",    //扫描二维码后显示的内容,可以直接填一个网址，扫描二维码后自动跳向该链接
+                    width : "100",               //二维码的宽度
+                    height : "100",              //二维码的高度
+                    background : "#ffffff",       //二维码的后景色
+                    foreground : "#000000",        //二维码的前景色
+                    src: 'photo.jpg'             //二维码中间的图片
+            });
+    }
+
     updates(){
         //this.loadStart(Id);
         document.getElementById("show").style.display="block";
@@ -81,17 +101,31 @@ export class InvitationPage extends Page {
     dismiss(){
         document.getElementById("show").style.display="none";
     }
+    dismisss(){
+        document.getElementById("show_able").style.display="none";
+    }
+    upable(codes){
+        document.getElementById("show_able").style.display="block";
+        this.loadDisable(codes)
+    }
+    upsubmit(){
+        var code1 = $("#code").text();
+        var status1=$('input:radio[name="Sad"]:checked').val();
+        this.loadUpsubmit(code1,status1);
+        document.getElementById("show_able").style.display="none";
+    }
+    //添加提交
     submit(){
-
-        var code = $("#sex").val();
+        /*var code = $("#sex").val();*/
         var userId =document.getElementById("run").value;
         var channel =document.getElementById("runs").value;
         var status=$('input:radio[name="Rad"]:checked').val();
-        if(code==""||userId=="请选择"||channel=="请选择"||status==null){
+        if(userId=="请选择"||channel=="请选择"||status==null){
             alert("请完善信息！")
         }else{
-            this.loadSubmit(userId,code,channel,status)
+            this.loadSubmit(userId,channel,status)
             document.getElementById("show").style.display="none";
+            window.location.reload();
         }
 
     }

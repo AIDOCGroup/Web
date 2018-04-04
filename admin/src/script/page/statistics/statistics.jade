@@ -1,16 +1,21 @@
 style.
     .leftb{
-        position: absolute;left: 59px;top: 11px;
+        position: absolute;left: 130px;top: 11px;
         width:0;height:0;border-bottom:8px solid transparent;
         border-top:8px solid transparent;border-right:8px solid #000;
         font-size:0;"
     }
     .rightb{
-        position: absolute;left: 71px;top: 11px;
+        position: absolute;left: 145px;top: 11px;
         width:0;height:0;border-bottom:8px solid transparent;
         border-top:8px solid transparent;border-left:8px solid #000;
         font-size:0;"
     }
+div(style="position: absolute;top: 70px;right: 180px;")
+
+    input#text( placeholder="请输入昵称 /手机号" )
+    &nbsp;&nbsp;
+    button( ng-click='mv.dataBtn("start","end","text")') 提交
 div.title-right
 div.panel.panel-default
     div.panel-heading.font-bold

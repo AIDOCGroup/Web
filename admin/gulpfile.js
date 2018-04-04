@@ -121,8 +121,8 @@ gulp.task('browser-sync', function () {
             baseDir: buildPath,
 
             middleware: [proxy('/api', {
-                    target:'http://192.168.8.101:81',
-                    /*target: 'http://127.0.0.1:8400',*/
+                target:'http://192.168.8.101:81',
+                /*target: 'http://127.0.0.1:8400',*/
                 //target: 'https://www.kelexuexi.com',
                 changeOrigin: true,
                 logLevel: 'debug'

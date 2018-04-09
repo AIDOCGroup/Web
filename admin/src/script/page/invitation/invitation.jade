@@ -127,13 +127,27 @@ style.
     canvas {
         margin-left: 62px;
     }
-div.sum
-b#sun {{mv.sum}}
-span#sub 人
-div.title-right
-button.btn.btn-primary.btn-addon(ng-click='mv.updates()')
-i.fa.fa-plus
-| 添加邀请
+
+    div.sum
+    b#sun {
+
+    {
+        mv . sum
+    }
+    }
+    span#sub 人
+    div.title-right
+    button.btn.btn-primary.
+                          btn-addon
+
+    (
+    ng-click
+
+    =
+    'mv.updates()'
+    )
+    i.fa.fa-plus
+    | 添加邀请
 div.panel.panel-default
 div.row
 div.col-sm-12
@@ -154,7 +168,7 @@ tr(ng-repeat='item in mv.invi')
 th {{item.registTime}}
 td {{item.ordernumber}}
 td.view {{item.invitationCode}}
-span#preview.preview(ng-mouseover='mv.preview(item.invitationCode)',ng-init="mv.preview(qrcode.clear())") 预览
+span#preview.preview(ng-mouseover='mv.preview(item.invitationCode)', ng-mouseleave="mv.preview = false") 预览
 td {{item.nickName}}
 td {{item.invitationNum}}
 td {{item.invitationChannel}}
@@ -171,7 +185,7 @@ p.title 添加邀请码
 form
 //label 邀请码:
 //span#sex {{ mv.code }}
-  br
+                        br
 label 邀请人姓名:
 select#run
 option 请选择
@@ -212,4 +226,4 @@ span 正常
 input(type="radio",name="Sad",value="0")
 span 禁用
 button#btn(ng-click='mv.upsubmit(mv.able)') 提交
-    
+                                                           

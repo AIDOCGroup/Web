@@ -66,12 +66,12 @@ export class InvitationPage extends Page {
             this.scopeApply();
         });
     }
-  loadDisable(codes) {
-       HttpService.Invitation.getDisableItems(codes).then((response:any) => {
-          this.able = response.list[0];
-          this.scopeApply();
-       });
-  }
+    loadDisable(codes) {
+        HttpService.Invitation.getDisableItems(codes).then((response:any) => {
+            this.able = response.list[0];
+            this.scopeApply();
+        });
+    }
     loadUpsubmit(code1,status1){
 
         HttpService.Invitation.getUpsubmitItems(code1,status1).then((response:any) => {
@@ -80,19 +80,24 @@ export class InvitationPage extends Page {
     }
 
     //预览
-    preview(code){
-
+    preview(codes){
+        this.loadDisable(codes);
         $("#preview").qrcode({
-                    render : "canvas",    //设置渲染方式，有table和canvas，使用canvas方式渲染性能相对来说比较好
-                    makeCode(code)
-                    text : "code",    //扫描二维码后显示的内容,可以直接填一个网址，扫描二维码后自动跳向该链接
-                    width : "100",               //二维码的宽度
-                    height : "100",              //二维码的高度
-                    background : "#ffffff",       //二维码的后景色
-                    foreground : "#000000",        //二维码的前景色
-                    src: 'photo.jpg'             //二维码中间的图片
-            });
+            render : "canvas",    //设置渲染方式，有table和canvas，使用canvas方式渲染性能相对来说比较好
+            //makeCode(codes),
+            text : "http://192.168.8.101/?"+codes,    //扫描二维码后显示的内容,可以直接填一个网址，扫描二维码后自动跳向该链接
+            width : "100",               //二维码的宽度
+            height : "100",              //二维码的高度
+            background : "#ffffff",       //二维码的后景色
+            foreground : "#000000",        //二维码的前景色
+        });
+
     }
+    previews(codes){
+        this.loadDisable(codes);
+        $('#preview').html("预览")
+    }
+
 
     updates(){
         //this.loadStart(Id);
@@ -123,6 +128,8 @@ export class InvitationPage extends Page {
         if(userId=="请选择"||channel=="请选择"||status==null){
             alert("请完善信息！")
         }else{
+
+
             this.loadSubmit(userId,channel,status)
             document.getElementById("show").style.display="none";
             window.location.reload();
@@ -132,6 +139,9 @@ export class InvitationPage extends Page {
 
 
 }
+
+
+
 
 
 

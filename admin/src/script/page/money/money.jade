@@ -1,0 +1,172 @@
+style.
+    .m-n {
+        font-size: 17px;
+    }
+
+    .bg-light {
+        position: relative;
+        font-size: 16px;
+        width: 250px;
+        height: 53px;
+        border: 1px solid #c1c3c9;
+        margin-left: 20px;
+        margin-top: 5px;
+    }
+
+    .sum {
+        position: absolute;
+        left: 262px;
+        top: 70px;
+        font-size: 17px;
+     }
+
+    #show {
+        position: absolute;
+        top: 25%;
+        left: 45%;
+        width: 400px;
+        height: 500px;
+        background-color: #fffde7;
+        border: 1px solid #000011;
+        z-index: 1002;
+        border-radius: 2px;
+        display: none;
+    }
+
+    .top {
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        border-bottom: 1px solid #000011;
+        background-color: #7266ba;
+        color:#fff;
+    }
+
+    .title {
+        font-size: 18px;
+    }
+
+    form {
+        margin: 22px 20px 0 20px;
+        padding-top: 12px;
+        box-sizing: border-box;
+    }
+
+    label {
+        width: 90px;
+        text-align: right;
+        margin-right: 15px;
+        margin-bottom: 20px;
+    }
+
+    #sun{
+        font-weight: 600;
+        padding-left: 10px;
+    }
+
+    #btn {
+        border-radius: 3px;
+        margin: 0 10%;
+        background: #7266ba;
+        width: 80%;
+        height: 35px;
+        border: 0;
+        text-align: center;
+        color: #fff;
+    }
+
+    #run, #runs {
+        width: 150px;
+        height: 35px;
+        padding-left: 10px;
+    }
+
+    #hour{
+        color:#5499d1;
+    }
+
+div.sum
+    b 挖矿卡管理
+    span#sun 369个
+div.title-right
+    button.btn.btn-primary.btn-addon(ng-click='mv.update()')
+        i.fa.fa-plus
+        | 添加挖矿卡
+div.panel.panel-default
+    div.row
+        div.col-sm-12
+            table.table.table-hover.m-b-none.b-b
+                thead
+                    tr
+                        th 创建时间
+                        th 序号
+                        th 邀请码
+                        th 价格
+                        th 用户
+                        th 购买渠道
+                        th 使用状态
+                        th 有效期(小时)
+                        th 激活时间
+                        th 到期时间
+                        th 操作
+                        //- th.text-right
+                tbody
+                    tr
+                        th //
+                        td //
+                        td //
+                        td //
+                        td //
+                        td //
+                        td //
+                        td //
+                        td //
+                        td //
+                        td(style="color:#5499d1",ng-click='mv.upable(item.invitationCode)')编辑
+    div.row
+        div.col-sm-12
+            pagination(page-size='mv.page.size', item-count='mv.page.count', ng-model='mv.page.current')
+div#show
+    div.top
+        button.close(style="position:absolute;right:10px;top:15px",type="button", ng-click='mv.dismiss()')
+            span ×
+        p.title 添加邀请码
+    form
+        label 邀请码:
+        span SHFK-HB84-4738-3976
+        br
+        label 价格:
+        select#run
+            option 请选择
+            option(ng-repeat='it in mv.namess' value='{{it.userId}}') {{text=it.nickname}}
+        br
+        label 用户:
+        select#runs
+            option 请选择
+            option(ng-repeat='item in mv.Channe' value='{{item.id}}') {{text=item.value}}
+        br
+        label 购买渠道:
+        select#run
+            option 请选择
+            option(ng-repeat='it in mv.namess' value='{{it.userId}}') {{text=it.nickname}}
+        br
+        label 有效期:
+        span#hour 720小时
+        br
+        label 使用状态:
+        input(type="radio",name="Rad",value="1")
+        span(style="margin-right:10px") 未使用
+        &nbsp;&nbsp;
+        input(type="radio",name="Rad",value="1")
+        span(style="margin-right:10px") 激活
+        &nbsp;&nbsp;
+        input(type="radio",name="Rad",value="0")
+        span 禁用
+        br
+        label 激活时间:
+        span 2018-04-09 10:30:56
+        br
+        label 到期时间:
+        span SHFK-HB84-4738-3976
+        button#btn(ng-click='mv.submit(item)') 提交
+

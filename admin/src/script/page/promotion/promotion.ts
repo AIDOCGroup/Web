@@ -39,6 +39,8 @@ export class PromotionPage extends Page {
     }
 
     update(){
+
+        
         //this.loadStart(Id);
         document.getElementById("show").style.display="block";
     }

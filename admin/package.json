@@ -53,7 +53,7 @@
     "angular-chosen-localytics": "^1.8.0",
     "angular-ui-bootstrap": "^2.5.0",
     "angular-ui-router": "^1.0.3",
-    "axios": "^0.16.2",
+    "axios": "^0.19.2",
     "bootstrap": "^3.3.7",
     "froala-editor": "^2.7.1",
     "gulp-inject": "^4.3.0",

@@ -48,7 +48,7 @@
     "@types/lodash.remove": "^4.7.3",
     "@types/lodash.transform": "^4.6.3",
     "@types/underscore": "^1.8.5",
-    "angular": "1.5.8",
+    "angular": "1.8.0",
     "angular-chart.js": "^1.1.1",
     "angular-chosen-localytics": "^1.8.0",
     "angular-ui-bootstrap": "^2.5.0",
